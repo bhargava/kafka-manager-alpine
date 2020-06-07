@@ -1,9 +1,11 @@
 FROM java:openjdk-8-jdk-alpine as compiler
 
+ARG SERVICE_VERSION=3.0.0.4
+
 # KEEP IN SYNC WITH BLOCK BELOW
 ENV SERVICE_HOME=/opt/kafka-manager \
     SERVICE_NAME=kafka-manager \
-    SERVICE_VERSION=2.0.0.2
+    SERVICE_VERSION=${SERVICE_VERSION}
 ENV SERVICE_CONF=${SERVICE_HOME}/conf/application.conf \
     DOWNLOAD_URL=https://github.com/yahoo/kafka-manager/archive/${SERVICE_VERSION}.tar.gz \
     DOWNLOAD_TARGET=/opt/${SERVICE_NAME}-${SERVICE_VERSION}.tar.gz
